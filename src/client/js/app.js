@@ -544,7 +544,12 @@ function setupSocket(socket) {
     });
 
     socket.on('playerDied', function (data) {
-        chat.addSystemLine('Player <b>' + data.name + '</b> died by ' + data.killer + '!');
+        if (data.killer !== 'undefined') {
+            chat.addSystemLine('Player <b>' + data.name + '</b> died by ' + data.killer + '!');
+        } else {
+            chat.addSystemLine('Player <b>' + data.name + '</b> died!');
+        }
+
     });
 
     socket.on('playerDisconnect', function (data) {

@@ -455,6 +455,7 @@ function tickPlayer(currentPlayer) {
                     new C(new V(user.cells[i].x, user.cells[i].y), user.cells[i].radius),
                     response);
                 if (collided) {
+                    currentCell.name = user.cells[i].name; //hack
                     response.aUser = currentCell;
                     response.bUser = {
                         id: user.id,
@@ -483,7 +484,7 @@ function tickPlayer(currentPlayer) {
                     users[numUser].cells.splice(collision.bUser.num, 1);
                 } else {
                     users.splice(numUser, 1);
-                    io.emit('playerDied', { name: collision.bUser.name, killer: collision.aUser.name });
+                    io.emit('playerDied', { name: collision.bUser.name, killer: collision.aUser.name  });
                     sockets[collision.bUser.id].emit('RIP');
                 }
             }
