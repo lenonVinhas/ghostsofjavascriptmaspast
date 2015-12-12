@@ -120,8 +120,8 @@ var kicked = false;
 var continuity = false;
 var startPingTime = 0;
 var toggleMassState = 0;
-var backgroundColor = '#f2fbff';
-var lineColor = '#000000';
+var backgroundColor = 'darkgreen';//#f2fbff';
+var lineColor = 'red';// '#000000';
 
 var foodConfig = {
     border: 0,
