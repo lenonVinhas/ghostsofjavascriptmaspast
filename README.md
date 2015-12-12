@@ -23,15 +23,6 @@ You are Santa and grabbing presents, trying not to get killed.
 
 ---
 
-## Latest Changes
-- Game logic handled by server
-- Client side is for rendering only
-- Display player name
-- Now supporting chat 
-- Type`-ping` in the chatbox to check your ping
-
----
-
 #### Requirements
 To run the game, you'll need: 
 - NodeJS with NPM installed
@@ -54,37 +45,3 @@ npm start
 ```
 
 The game will then be accessible at `http://localhost:3000`.
-
-## FAQ
-1. **What is this game?**
-
-  This is a clone of the game [Agar.IO](http://agar.io/). Someone said that Agar.IO is a clone of an iPad game called Osmos, but we haven't tried it yet. (Cloneception? :P)
-  
-2. **Why would you make a clone of this game?**
-
-  Well, while the original game is still online, it's closed source, and sometimes, it suffers from massive lag. That's why we want to make an open source version of it: for learning purposes, and to let the community add some awesome features that they want, self-host on their own servers to have fun with some friends.
-  
-3. **Any plans on adding an online server to compete with Agar.IO or making money out of it?**
-
-  No. This game belongs to the open-source community, and we have no plans on making money out of it nor competing with anything. But you surely can create your own public server, let us know if you do so and we can add it to our Live Demos list.
-  
-4. **Can I deploy this game to my own server?**
-
-  Sure you can! That's what it's made for ;)
-  
-5. **I don't like HTML5 Canvas. Can I write my own game client with this server?**
-
-  Sure. As long as your client supports WebSockets, you can write your game client in any language/technology, even with Unity3D if you want (there is an open source library for Unity to communicate with WebSockets).
-  
-6. **Can I use some code of this project on my own?**
-
-  Yes you can.
-
-## For Developers
- - [Game Architecture](https://github.com/huytd/agar.io-clone/wiki/Game-Architecture)
- - If you want to start your own project, I recommend you use [this template](https://github.com/huytd/node-online-game-template)
-
-## License
->You can check out the full license [here](https://github.com/huytd/agar.io-clone/blob/master/LICENSE)
-
-This project is licensed under the terms of the **MIT** license.
