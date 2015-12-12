@@ -655,6 +655,7 @@ function drawFood(food) {
     graph.lineWidth = foodConfig.border;
     graph.save();
     graph.translate(food.x - player.x + screenWidth / 2, food.y - player.y + screenHeight / 2);
+    graph.scale(1 / (food.radius * 0.4), 1 / (food.radius * 0.4));
     drawSnowflake(graph);
     graph.restore();
     //drawCircle(food.x - player.x + screenWidth / 2, food.y - player.y + screenHeight / 2, food.radius, foodSides);
