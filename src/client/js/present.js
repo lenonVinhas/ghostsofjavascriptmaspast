@@ -1,7 +1,8 @@
-module.exports = function drawPresent(ctx) {
+module.exports = function drawPresent(ctx, x, y) {
 ctx.save();
+ctx.translate(x - 32, y - 32);
 ctx.beginPath();
-ctx.moveTo(0,0);
+ctx.moveTo(0, 0);
 ctx.lineTo(64,0);
 ctx.lineTo(64,64);
 ctx.lineTo(0,64);
