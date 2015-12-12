@@ -5,6 +5,7 @@ Ghosts of Javascriptmas Past - Snowball Wars
 [Play Now - http://snowballwars.herokuapp.com/](http://snowballwars.herokuapp.com/)
 
 ## Goals
+- Every member contributes / commits to project
 - Clone [Agar.io](https://github.com/huytd/agar.io-clone) 
 - Christmasify the game (falling snow, music, colors, snowflakes, logos) 
 - Add Santa's Naughty list - kills
