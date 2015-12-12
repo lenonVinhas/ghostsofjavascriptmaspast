@@ -27,6 +27,7 @@ Ghosts of Javascriptmas Past - Snowball Wars
 - Node.js
 - Socket.IO
 - Backand / Angular.js
+- [http://www.professorcloud.com/svg-to-canvas/](http://www.professorcloud.com/svg-to-canvas/)
 
 ## Gameplay
 You are the white snow ball in the center of the screen. Use your mouse to point in the direction you want to move.

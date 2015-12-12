@@ -10,7 +10,7 @@
     var _this = this;
 
     this.getAllScores = function getAllScores() {
-      return $http ({
+      return $http({
         method: 'GET',
         url: Backand.getApiUrl() + '/1/objects/users',
         params: {
@@ -18,25 +18,38 @@
           pageNumber: 1
         }
       });
-
     };
 
     this.addUser = function addUser(user) {
+      return $http({
+        method: 'POST',
+        url: Backand.getApiUrl() + '/1/objects/users?returnObject=true',
+        data: {
+          email: user.name + '@holidayjs.com',
+          name: user.name,
+          score: user.value
+        }
+      });
     };
 
   })
+  .controller('StartMenuController', ['$scope', 'leaderBoardService', function ($scope, leaderBoardService) {
+    var _this = this;
+
+    $scope.gameStart = function gameStart() {
+      leaderBoardService.addUser({
+        name: this.playerName,
+        value: 0
+      }).then(function (result) {
+        console.log(result);
+      });
+    };
+
+  }])
   .directive('leaderBoard', function (leaderBoardService) {
     return {
       restrict: 'E',
       link: function (scope, el, atts) {
-        // scope.scores = [
-        // { name: 'tim', value: '9000' },
-        // { name: 'atim', value: '9000' },
-        // { name: 'btim', value: '9000' },
-        // { name: 'ctim', value: '9000' },
-        // { name: 'dtim', value: '9000' },
-        // { name: 'etim', value: '9000' },
-        // ];
         leaderBoardService.getAllScores().then(function (response) {
           var scores = response.data.data;
           if (scores.length === 0) {
