@@ -2,8 +2,8 @@
   angular
   .module('SnowballFightApp', ['backand'])
   .config(function (BackandProvider) {
-    BackandProvider.setAppName('holidayjs2015gojsteam');
-    BackandProvider.setAnonymousToken('6920c9f8-c09b-4604-a8f0-64898425b7e7');
+    BackandProvider.setAppName('snowballwar');
+    BackandProvider.setAnonymousToken('e9227794-7bd8-4740-9fd7-8698176be024');
   })
   .service('leaderBoardService', function ($http, Backand) {
     var _this = this;
@@ -11,7 +11,7 @@
     this.getAllScores = function getAllScores() {
       return $http({
         method: 'GET',
-        url: Backand.getApiUrl() + '/1/objects/users',
+        url: Backand.getApiUrl() + '/1/objects/scores',
         params: {
           pageSize: 20,
           pageNumber: 1
@@ -22,7 +22,7 @@
     this.addUser = function addUser(user) {
       return $http({
         method: 'POST',
-        url: Backand.getApiUrl() + '/1/objects/users?returnObject=true',
+        url: Backand.getApiUrl() + '/1/objects/scores?returnObject=true',
         data: {
           email: user.name + '@holidayjs.com',
           name: user.name,
