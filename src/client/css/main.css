@@ -127,6 +127,11 @@ div {
     font-size: 18px;
 }
 
+.chatbox .chat-input::-webkit-input-placeholder { color: darkgreen; }
+.chatbox .chat-input:-moz-placeholder { /* Firefox 18- */ color: darkgreen;  }
+.chatbox .chat-input::-moz-placeholder {  /* Firefox 19+ */ color: darkgreen;  }
+.chatbox .chat-input:-ms-input-placeholder {  color: darkgreen;  }
+
 #startMenu {
     position: relative;
     margin: auto;
