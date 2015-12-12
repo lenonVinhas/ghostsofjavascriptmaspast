@@ -52,7 +52,7 @@
     <script src="js/snowflakes.js"></script>
 </head>
 <body>
-    <div id="sceneContainer">
+    <div id="sceneContainer" ng-app="SnowballFightApp">
             <canvas id="backgroundGradient"></canvas>
             <canvas id="snowflakesCanvas"></canvas>
         
@@ -94,17 +94,15 @@
                     <li>Objective: Try to get fat and eat other players</li>
                 </ul>
             </div>
-        </div>
-        <div ng-app="SnowballFightApp" style="color: white;">
             <leader-board>
-                LEADER BOARD
+                <h3>Leader Board</h3>
                 <ol>
-                    <li ng-repeat="score in scores">{{ score.name }} - {{ score.value }}</li>
+                    <li ng-repeat="score in scores"><em>{{ score.name }}</em>: {{ score.value }}</li>
                 </ol>
             </leader-board>
         </div>
     </div>
-        </div>
+    </div>
 
     <script src="/js/angular.min.js"></script>
     <script src="//cdn.backand.net/backand/dist/1.8.2/backand.min.js"></script>

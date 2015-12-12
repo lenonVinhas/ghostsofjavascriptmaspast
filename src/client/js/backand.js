@@ -3,8 +3,8 @@
   .module('SnowballFightApp', ['backand'])
   .config(function (BackandProvider) {
     BackandProvider.setAppName('holidayjs2015gojsteam');
-    BackandProvider.setSignUpToken('0820fd61-2cf4-43a2-b941-aa7f327ab256');
-    BackandProvider.setAnonymousToken('d7992fbc-3b2e-4a46-9c93-bbdd00748af3');
+    BackandProvider.setSignUpToken('592a952f-20ae-461a-818c-7e5bef86e7a5');
+    BackandProvider.setAnonymousToken('6920c9f8-c09b-4604-a8f0-64898425b7e7');
   })
   .service('leaderBoardService', function ($http, Backand) {
     var _this = this;
@@ -12,7 +12,7 @@
     this.getAllScores = function getAllScores() {
       return $http ({
         method: 'GET',
-        url: Backand.getApiUrl() + '/1/query/data/getAllScores',
+        url: Backand.getApiUrl() + '/1/objects/users',
         params: {
           pageSize: 20,
           pageNumber: 1
@@ -37,8 +37,15 @@
         // { name: 'dtim', value: '9000' },
         // { name: 'etim', value: '9000' },
         // ];
-        leaderBoardService.getAllScores().then(function (data) {
-          scope.scores = data.scores;
+        leaderBoardService.getAllScores().then(function (response) {
+          var scores = response.data.data;
+          if (scores.length === 0) {
+            scores = [
+              { name: 'No Players Have Scored Yet!', value: 0 }
+            ];
+          }
+          scope.scores = scores;
+
         });
       }
     };
