@@ -1,0 +1,13 @@
+[
+  {
+    "name": "users",
+    "fields": {
+      "name": {
+        "type": "string"
+      },
+      "score": {
+        "type": "float"
+      }
+    }
+  }
+]
