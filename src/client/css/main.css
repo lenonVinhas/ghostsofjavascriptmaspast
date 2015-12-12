@@ -47,7 +47,7 @@ div {
 .chatbox {
     position: absolute;
     width: 300px;
-    height: 320px;
+    height: 360px;
     background: rgba(255, 255, 255, 0.7);
     background-image: url(/images/paper.jpg);
     background-repeat: no-repeat;
@@ -73,23 +73,33 @@ div {
     box-sizing: border-box;
     height: 285px;
     overflow: hidden;
+    color: #220000;
+    font-family: 'Niconne', cursive;
+    font-size: 18px;
 
 }
 
 .chatbox .chat-list li {
     padding: 2px;
     margin: 3px;
+    color: #220000;
+    font-family: 'Niconne', cursive;
+    font-size: 18px;
 
 }
 
 .chatbox .chat-list li.me b {
-    color: #220000;
+  color: #220000;
+  font-family: 'Niconne', cursive;
+  font-size: 18px;
 
 
 }
 
 .chatbox .chat-list li.friend b {
-    color: #220000;
+  color: #220000;
+  font-family: 'Niconne', cursive;
+  font-size: 18px;
 
 }
 

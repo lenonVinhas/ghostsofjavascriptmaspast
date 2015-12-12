@@ -105,7 +105,7 @@ window.onload = function() {
             }
         }
     });
-    
+
     snowflakes.generate(250);
 };
 
@@ -544,20 +544,17 @@ function setupSocket(socket) {
     });
 
     socket.on('playerDied', function (data) {
-        if (!data.killer) {
-            chat.addSystemLine('Player <b>' + data.name + '</b> died by ' + data.killer + '!');
-        } else {
-            chat.addSystemLine('Player <b>' + data.name + '</b> died!');
-        }
+        chat.addSystemLine('Player <b>' + data.name + '</b> died!');
+
 
     });
 
     socket.on('playerDisconnect', function (data) {
-        //chat.addSystemLine('Player <b>' + data.name + '</b> disconnected!');
+        chat.addSystemLine('Player <b>' + data.name + '</b> disconnected!');
     });
 
     socket.on('playerJoin', function (data) {
-        //chat.addSystemLine('Player <b>' + data.name + '</b> joined!');
+        chat.addSystemLine('Player <b>' + data.name + '</b> joined!');
     });
 
     socket.on('leaderboard', function (data) {
@@ -895,7 +892,7 @@ function gameLoop() {
             snowflakes.render(graph);
             //graph.fillStyle = backgroundColor;
             //graph.fillRect(0, 0, screenWidth, screenHeight);
-            
+
             drawgrid();
 
             foods.forEach(function(food) {
@@ -965,4 +962,3 @@ function resize() {
     socket.emit('windowResized', { screenWidth: screenWidth, screenHeight: screenHeight });
     snowflakes.updateBounds();
 }
-
