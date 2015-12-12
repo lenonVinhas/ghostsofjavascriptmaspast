@@ -1,7 +1,9 @@
 var io = require('socket.io-client');
 
 var drawSnowflake = require('./snowflake');
+var drawPresent = require('./present');
 var drawBackground = require('./background');
+var snowflakes = require('./snowflakes');
 
 var playerName;
 var playerType;
@@ -103,6 +105,8 @@ window.onload = function() {
             }
         }
     });
+    
+    snowflakes.generate(250);
 };
 
 // Canvas
@@ -124,7 +128,7 @@ var continuity = false;
 var startPingTime = 0;
 var toggleMassState = 0;
 var backgroundColor = 'transparent';//#f2fbff';
-var lineColor = 'red';// '#000000';
+var lineColor = '#fff';// '#000000';
 
 var foodConfig = {
     border: 0,
@@ -655,8 +659,9 @@ function drawFood(food) {
     graph.lineWidth = foodConfig.border;
     graph.save();
     graph.translate(food.x - player.x + screenWidth / 2, food.y - player.y + screenHeight / 2);
-    graph.scale(1 / (food.radius * 0.4), 1 / (food.radius * 0.4));
-    drawSnowflake(graph);
+    //graph.scale(1 / (food.radius * 0.2), 1 / (food.radius * 0.2));
+    drawPresent(graph);
+    //drawSnowflake(graph);
     graph.restore();
     //drawCircle(food.x - player.x + screenWidth / 2, food.y - player.y + screenHeight / 2, food.radius, foodSides);
 }
@@ -771,7 +776,7 @@ function valueInRange(min, max, value) {
 function drawgrid() {
      graph.lineWidth = 1;
      graph.strokeStyle = lineColor;
-     graph.globalAlpha = 0.15;
+     //graph.globalAlpha = 0.15;
      graph.beginPath();
 
     for (var x = xoffset - player.x; x < screenWidth; x += screenHeight / 18) {
@@ -878,6 +883,7 @@ function gameLoop() {
     else if (!disconnected) {
         if (gameStart) {
             drawBackground(graph);
+            snowflakes.render(graph);
             //graph.fillStyle = backgroundColor;
             //graph.fillRect(0, 0, screenWidth, screenHeight);
             
@@ -948,5 +954,6 @@ function resize() {
     player.screenWidth = c.width = screenWidth = playerType == 'player' ? window.innerWidth : gameWidth;
     player.screenHeight = c.height = screenHeight = playerType == 'player' ? window.innerHeight : gameHeight;
     socket.emit('windowResized', { screenWidth: screenWidth, screenHeight: screenHeight });
+    snowflakes.updateBounds();
 }
 
