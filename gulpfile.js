@@ -10,7 +10,7 @@ var webpack = require('webpack-stream');
 
 gulp.task('build', ['build-client', 'build-server', 'test']);
 
-gulp.task('test', [], function () {
+gulp.task('test', function () {
     gulp.src(['test/**/*.js'])
         .pipe(mocha());
 });
@@ -37,7 +37,7 @@ gulp.task('move-client', function () {
 });
 
 
-gulp.task('build-server', [], function () {
+gulp.task('build-server', function () {
   return gulp.src(['src/server/**/*.*', 'src/server/**/*.js'])
     .pipe(babel())
     .pipe(gulp.dest('bin/server/'));

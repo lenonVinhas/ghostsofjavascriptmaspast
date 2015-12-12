@@ -25,6 +25,8 @@ div {
     position: absolute;
     padding: 10px;
     background: rgba(0, 0, 0, 0.4);
+    background-image: url(/images/holidayjslogo.png);
+    background-repeat: no-repeat;
     color: #FFF;
     font-size: 16.1px;
     top: 10px;
