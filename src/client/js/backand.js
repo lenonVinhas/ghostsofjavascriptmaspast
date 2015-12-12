@@ -2,7 +2,7 @@
   angular
   .module('SnowballFightApp', ['backand'])
   .config(function (BackandProvider) {
-    BackandProvider.setAppName('gojs');
+    BackandProvider.setAppName('holidayjs2015gojsteam');
     BackandProvider.setSignUpToken('0820fd61-2cf4-43a2-b941-aa7f327ab256');
     BackandProvider.setAnonymousToken('d7992fbc-3b2e-4a46-9c93-bbdd00748af3');
   })
@@ -10,15 +10,20 @@
     var _this = this;
 
     this.getAllScores = function getAllScores() {
-      return $http({
+      return $http ({
         method: 'GET',
-        url: Backand.getApiUrl() + '/1/users/',
+        url: Backand.getApiUrl() + '/1/query/data/getAllScores',
         params: {
           pageSize: 20,
           pageNumber: 1
         }
       });
+
     };
+
+    this.addUser = function addUser(user) {
+    };
+
   })
   .directive('leaderBoard', function (leaderBoardService) {
     return {
@@ -32,8 +37,8 @@
         // { name: 'dtim', value: '9000' },
         // { name: 'etim', value: '9000' },
         // ];
-        leaderBoardService.getAllScores().then(function (scores) {
-          scope.scores = scores;
+        leaderBoardService.getAllScores().then(function (data) {
+          scope.scores = data.scores;
         });
       }
     };
