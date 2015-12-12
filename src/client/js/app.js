@@ -1,5 +1,7 @@
 var io = require('socket.io-client');
 
+var drawSnowflake = require('./snowflake');
+
 var playerName;
 var playerType;
 var playerNameInput = document.getElementById('playerNameInput');
@@ -650,7 +652,11 @@ function drawFood(food) {
     graph.strokeStyle = 'hsl(' + food.hue + ', 100%, 45%)';
     graph.fillStyle = 'hsl(' + food.hue + ', 100%, 50%)';
     graph.lineWidth = foodConfig.border;
-    drawCircle(food.x - player.x + screenWidth / 2, food.y - player.y + screenHeight / 2, food.radius, foodSides);
+    graph.save();
+    graph.translate(food.x - player.x + screenWidth / 2, food.y - player.y + screenHeight / 2);
+    drawSnowflake(graph);
+    graph.restore();
+    //drawCircle(food.x - player.x + screenWidth / 2, food.y - player.y + screenHeight / 2, food.radius, foodSides);
 }
 
 function drawFireFood(mass) {
