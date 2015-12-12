@@ -658,9 +658,9 @@ function drawFood(food) {
     graph.fillStyle = 'hsl(' + food.hue + ', 100%, 50%)';
     graph.lineWidth = foodConfig.border;
     graph.save();
-    graph.translate(food.x - player.x + screenWidth / 2, food.y - player.y + screenHeight / 2);
+    //graph.translate(food.x - player.x + screenWidth / 2, food.y - player.y + screenHeight / 2);
     //graph.scale(1 / (food.radius * 0.2), 1 / (food.radius * 0.2));
-    drawPresent(graph);
+    drawPresent(graph, food.x - player.x + screenWidth / 2, food.y - player.y + screenHeight / 2);
     //drawSnowflake(graph);
     graph.restore();
     //drawCircle(food.x - player.x + screenWidth / 2, food.y - player.y + screenHeight / 2, food.radius, foodSides);
