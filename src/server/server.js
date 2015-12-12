@@ -483,7 +483,8 @@ function tickPlayer(currentPlayer) {
                     users[numUser].cells.splice(collision.bUser.num, 1);
                 } else {
                     users.splice(numUser, 1);
-                    io.emit('playerDied', { name: collision.bUser.name });
+                    io.emit('playerDied', { name: collision.bUser.name, killer: collision.aUser.name});
+
                     sockets[collision.bUser.id].emit('RIP');
                 }
             }

@@ -525,8 +525,8 @@ function setupSocket(socket) {
         socket.emit('gotit', player);
         gameStart = true;
         debug('Game is started: ' + gameStart);
-        chat.addSystemLine('Connected to the game!');
-        chat.addSystemLine('Type <b>-help</b> for a list of commands');
+        //chat.addSystemLine('Connected to the game!');
+        //chat.addSystemLine('Type <b>-help</b> for a list of commands');
         if (mobile) {
             document.getElementById('gameAreaWrapper').removeChild(document.getElementById('chatbox'));
         }
@@ -539,16 +539,16 @@ function setupSocket(socket) {
         resize();
     });
 
-    socket.on('playerDied', function (data) {
-        chat.addSystemLine('Player <b>' + data.name + '</b> died!');
+    socket.on('playerDied', function (data, killer) {
+        chat.addSystemLine('Player <b>' + data.name + '</b> died by ' + killer.name + '!');
     });
 
     socket.on('playerDisconnect', function (data) {
-        chat.addSystemLine('Player <b>' + data.name + '</b> disconnected!');
+        //chat.addSystemLine('Player <b>' + data.name + '</b> disconnected!');
     });
 
     socket.on('playerJoin', function (data) {
-        chat.addSystemLine('Player <b>' + data.name + '</b> joined!');
+        //chat.addSystemLine('Player <b>' + data.name + '</b> joined!');
     });
 
     socket.on('leaderboard', function (data) {
