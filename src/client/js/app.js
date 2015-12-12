@@ -663,9 +663,13 @@ function drawFood(food) {
     graph.fillStyle = 'hsl(' + food.hue + ', 100%, 50%)';
     graph.lineWidth = foodConfig.border;
     graph.save();
+    let x = food.x - player.x + screenWidth / 2;
+    let y = food.y - player.y + screenHeight / 2;
+    let ribbonColor = `hsl(${food.hue}, 100%, 50%)`;
+    let boxColor = `hsl(${food.hue1}, 100%, 50%)`;
     //graph.translate(food.x - player.x + screenWidth / 2, food.y - player.y + screenHeight / 2);
     //graph.scale(1 / (food.radius * 0.2), 1 / (food.radius * 0.2));
-    drawPresent(graph, food.x - player.x + screenWidth / 2, food.y - player.y + screenHeight / 2);
+    drawPresent(graph, x, y, ribbonColor, boxColor);
     //drawSnowflake(graph);
     graph.restore();
     //drawCircle(food.x - player.x + screenWidth / 2, food.y - player.y + screenHeight / 2, food.radius, foodSides);
