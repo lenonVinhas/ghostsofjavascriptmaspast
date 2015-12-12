@@ -543,8 +543,8 @@ function setupSocket(socket) {
         resize();
     });
 
-    socket.on('playerDied', function (data, killer) {
-        chat.addSystemLine('Player <b>' + data.name + '</b> died by ' + killer.name + '!');
+    socket.on('playerDied', function (data) {
+        chat.addSystemLine('Player <b>' + data.name + '</b> died by ' + data.killer + '!');
     });
 
     socket.on('playerDisconnect', function (data) {
