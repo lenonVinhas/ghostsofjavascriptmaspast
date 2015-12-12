@@ -3,7 +3,6 @@
   .module('SnowballFightApp', ['backand'])
   .config(function (BackandProvider) {
     BackandProvider.setAppName('holidayjs2015gojsteam');
-    BackandProvider.setSignUpToken('592a952f-20ae-461a-818c-7e5bef86e7a5');
     BackandProvider.setAnonymousToken('6920c9f8-c09b-4604-a8f0-64898425b7e7');
   })
   .service('leaderBoardService', function ($http, Backand) {
