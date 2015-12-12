@@ -32,7 +32,7 @@
 					maxOpacityIncrement = 50,
 				// dynamic speed:
 				// start without any speed correction
-					speedFactor = 5;
+					speedFactor = .5;
 
 				// create number of snowflakes adding if required (or regenerate from scratch)
 				function generate(number, add) {
