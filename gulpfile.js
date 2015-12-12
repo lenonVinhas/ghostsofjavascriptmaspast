@@ -10,7 +10,7 @@ var webpack = require('webpack-stream');
 
 gulp.task('build', ['build-client', 'build-server', 'test']);
 
-gulp.task('test', ['lint'], function () {
+gulp.task('test', function () {
     gulp.src(['test/**/*.js'])
         .pipe(mocha());
 });
@@ -24,7 +24,7 @@ gulp.task('lint', function () {
     .pipe(jshint.reporter('fail'));
 });
 
-gulp.task('build-client', ['lint', 'move-client'], function () {
+gulp.task('build-client', ['move-client'], function () {
   return gulp.src(['src/client/js/app.js'])
     .pipe(webpack(require('./webpack.config.js')))
     //.pipe(uglify())
@@ -37,7 +37,7 @@ gulp.task('move-client', function () {
 });
 
 
-gulp.task('build-server', ['lint'], function () {
+gulp.task('build-server', function () {
   return gulp.src(['src/server/**/*.*', 'src/server/**/*.js'])
     .pipe(babel())
     .pipe(gulp.dest('bin/server/'));
