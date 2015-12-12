@@ -72,12 +72,12 @@
         <canvas tabindex="1" id="cvs"></canvas>
     </div>
     <div id="startMenuWrapper">
-        <div id="startMenu">
+        <div id="startMenu" ng-controller="StartMenuController">
             <p>Open Snowball Wars</p>
-            <input type="text" tabindex="0" autofocus placeholder="Enter your name here" id="playerNameInput" maxlength="25" />
+            <input type="text" tabindex="0" autofocus placeholder="Enter your name here" id="playerNameInput" maxlength="25" ng-model="playerName"/>
             <b class="input-error">Nick must be alphanumeric characters only!</b>
             <br />
-            <button id="startButton">Play</button>
+            <button id="startButton" ng-click="gameStart()">Play</button>
             <button id="spectateButton">Spectate</button>
             <button id="settingsButton">Settings</button>
             <br />
@@ -104,7 +104,7 @@
             <leader-board>
                 <h3>Leader Board</h3>
                 <ol>
-                    <li ng-repeat="score in scores"><em>{{ score.name }}</em>: {{ score.value }}</li>
+                    <li ng-repeat="score in scores"><em>{{ score.name }}</em>: {{ score.score }}</li>
                 </ol>
             </leader-board>
         </div>
