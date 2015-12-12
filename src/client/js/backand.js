@@ -24,9 +24,8 @@
         method: 'POST',
         url: Backand.getApiUrl() + '/1/objects/scores?returnObject=true',
         data: {
-          email: user.name + '@holidayjs.com',
-          name: user.name,
-          score: user.value
+          player: user.name,
+          score: user.score
         }
       });
     };
@@ -38,7 +37,7 @@
     $scope.gameStart = function gameStart() {
       leaderBoardService.addUser({
         name: this.playerName,
-        value: 0
+        score: 0
       }).then(function (result) {
         console.log(result);
       });
@@ -53,7 +52,7 @@
           var scores = response.data.data;
           if (scores.length === 0) {
             scores = [
-              { name: 'No Players Have Scored Yet!', value: 0 }
+              { name: 'No Players Have Scored Yet!', score: 0 }
             ];
           }
           scope.scores = scores;
