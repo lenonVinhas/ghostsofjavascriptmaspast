@@ -49,11 +49,21 @@ div {
     width: 300px;
     height: 320px;
     background: rgba(255, 255, 255, 0.7);
+    background-image: url(/images/paper.jpg);
+    background-repeat: no-repeat;
     bottom: 5px;
     left: 5px;
     border-radius: 5px;
     pointer-events: none;
+
 }
+
+.chatHeader {
+  text-align: center;
+  font-family: 'Niconne', cursive !important;
+  font-size: 22px !important;
+}
+
 
 .chatbox .chat-list {
     padding: 5px;
@@ -62,24 +72,31 @@ div {
     box-sizing: border-box;
     height: 285px;
     overflow: hidden;
+
 }
 
 .chatbox .chat-list li {
     padding: 2px;
     margin: 3px;
+
 }
 
 .chatbox .chat-list li.me b {
-    color: #ea6153;
+    color: #220000;
+
+
 }
 
 .chatbox .chat-list li.friend b {
-    color: #2ecc71;
+    color: #220000;
+
 }
 
 .chatbox .chat-list li.system {
-    color: #9b59b6;
-    font-style: italic;
+    color: #220000;
+    font-family: 'Niconne', cursive;
+    font-size: 18px;
+
 }
 
 .chatbox .chat-list li.system:before {
@@ -95,6 +112,8 @@ div {
     border: none;
     border-top: 1px solid #DDD;
     outline: none;
+    font-family: 'Niconne', cursive;
+    font-size: 18px;
 }
 
 #startMenu {
