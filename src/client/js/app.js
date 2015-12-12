@@ -1,6 +1,7 @@
 var io = require('socket.io-client');
 
 var drawSnowflake = require('./snowflake');
+var drawBackground = require('./background');
 
 var playerName;
 var playerType;
@@ -122,7 +123,7 @@ var kicked = false;
 var continuity = false;
 var startPingTime = 0;
 var toggleMassState = 0;
-var backgroundColor = 'darkgreen';//#f2fbff';
+var backgroundColor = 'transparent';//#f2fbff';
 var lineColor = 'red';// '#000000';
 
 var foodConfig = {
@@ -875,8 +876,10 @@ function gameLoop() {
     }
     else if (!disconnected) {
         if (gameStart) {
-            graph.fillStyle = backgroundColor;
-            graph.fillRect(0, 0, screenWidth, screenHeight);
+            drawBackground(graph);
+            //graph.fillStyle = backgroundColor;
+            //graph.fillRect(0, 0, screenWidth, screenHeight);
+            
             drawgrid();
 
             foods.forEach(function(food) {
